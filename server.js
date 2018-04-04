@@ -1,7 +1,5 @@
-//OpenShift sample Node application
-var express = require('express'),
-    app     = express(),
-    morgan  = require('morgan');
+
+var  morgan  = require('morgan');
 
 var app = require('express')();
 var server = require('http').Server(app);
