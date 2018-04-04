@@ -2,11 +2,21 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
+
+var app = require('express')();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+var players = [];
+var counter = 0;
     
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
+
+server.listen(8080, function(){
+  console.log("Server is now running...");
+});
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
